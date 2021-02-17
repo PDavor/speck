@@ -3,27 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="stil.css">
     <title>Products App</title>
 </head>
 <body>
-    <h1>Products App</h1>
-    <form>
-        <label for="ptitle">Produt title</label><br>
-        <input type="text" id="ptitle">
-        <input type="submit" id="send">
-      </form>
-      <ul id="plista">
+    <div id="container">
+        <h1>Products App</h1>
+        <form>
+            <label for="ptitle" id="title_label">Product title</label><br>
+            <input type="text" id="ptitle">
+            <input type="submit" id="send" onClick="dodaj(event)" value="Add product">
+        </form>
+        <div id="tekst">
+            <p id="broj_proizvoda">Number of products: <span id="brojac"></span><a id="remove" onclick="izbrisi();" href="#">Remove all products</a></p>
+        </div>
+        <ul id="plista">
 
-      </ul>
+        </ul>
+    </div>
 </body>
 <script>
-    const ul = document.getElementById("plista");   
-    $("#send").click(function(event) {
-        const li = document.createElement("li");
-        li.appendChild(document.createTextNode(document.getElementById("ptitle").value));
-        ul.appendChild(li);
-      event.preventDefault();
-    });
+    const ul = document.getElementById("plista");
+    let counter = 0;
+    function dodaj (event) {
+        if (document.getElementById("ptitle").value.length > 0) {
+            const li = document.createElement("li");
+            li.appendChild(document.createTextNode(document.getElementById("ptitle").value));
+            ul.appendChild(li);
+            
+            counter += 1;
+            document.getElementById("brojac").innerHTML = counter;
+            document.getElementById("broj_proizvoda").style.visibility = "visible";
+
+            document.getElementById("ptitle").value = "";
+        } else {
+            alert("Product name has to contain atleast one character!");
+        }
+        event.preventDefault();  
+    };
+
+    function izbrisi () {
+        if (window.confirm('Are you sure that you want to delete all products?'))
+        {
+            while(ul.firstChild) {
+                ul.removeChild(ul.lastChild);
+            }
+            counter = 0;
+            document.getElementById("brojac").innerHTML = counter;
+            document.getElementById("broj_proizvoda").style.visibility = "hidden";
+
+            document.getElementById("ptitle").value = "";
+        }  
+    }
 </script>
 </html>

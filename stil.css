@@ -1,0 +1,62 @@
+#container  {
+    width: 610px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: space-between;
+}
+
+#ptitle {
+    height: 20px;
+    width: 500px;
+}
+
+#send {
+    height: 26px;
+    background: #3f3eb8;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+}
+ h1 {
+     align-self: center;
+ }
+
+ #broj_proizvoda {
+     width: 600px;
+     visibility: hidden;
+ }
+
+ #remove {
+    float: right;
+}
+
+
+#plista {
+    align-self: center;
+}
+
+li {
+    list-style-type: none;
+    background: #f1eff1;
+    color: #fd7374;
+    width: 580px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: -39px;
+    border-radius: 5px;
+}
+
+li:hover {
+    background: #fd7374;
+    color: #f1eff1;
+    
+} 
+
+#brojac {
+    color: #fd7374;
+    font-weight: bold;
+}
